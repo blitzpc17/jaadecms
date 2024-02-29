@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\indexController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Frontend.layout');
-});
+/*FROONTEND */
+
+Route::get('/', [indexController::class, 'home'])->name('home');
+Route::get('lotificaciones', [indexController::class, 'zonas'])->name('lotificaciones');
+Route::get('contacto', [indexController::class, 'contacto'])->name('contacto');
+
+
+
+/*BACKEND */
