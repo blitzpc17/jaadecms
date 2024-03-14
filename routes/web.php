@@ -6,6 +6,7 @@ use App\Http\Controllers\indexController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\zonasController;
 use App\Http\Controllers\sliderController;
+use App\Http\Controllers\servicioscontroller;
 
 /*
 |--------------------------------------------------------------------------

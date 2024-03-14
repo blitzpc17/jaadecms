@@ -40,7 +40,7 @@
         <a class="nav-link" href="{{route('admin.zonas')}}">Zonas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Servicios</a>
+        <a class="nav-link" href="{{route('admin.servicios')}}">Servicios</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="">Contacto</a>
