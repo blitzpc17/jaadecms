@@ -58,9 +58,6 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{route('lotificaciones')}}">Ver todas</a>
-              <a class="dropdown-item" href="blog-single.html">Blog Single</a>
-              <a class="dropdown-item" href="agents-grid.html">Agents Grid</a>
-              <a class="dropdown-item" href="agent-single.html">Agent Single</a>
             </div>
           </li>
                 
@@ -111,24 +108,11 @@
             <div class="w-body-a">
               <div class="w-body-a">
                 <ul class="list-unstyled">
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
-                  </li>
+                  @foreach($zonas as $zn)
+                    <li class="item-list-a">
+                      <i class="fa fa-angle-right"></i><a href="{{route('zonas.info')}}?lote={{$zn->id}}">{{$zn->nombre}}</a>
+                    </li>
+                  @endforeach                 
                 </ul>
               </div>
             </div>

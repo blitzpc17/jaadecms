@@ -3,28 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use \stdClass;
 use Session;
 use DB;
 
-use App\Models\servicios;
+use App\Models\slider;
 use App\Models\Utilidades;
 
-class servicioscontroller extends Controller
+class sliderController extends Controller
 {
     public function create(Request $r){
         $user = Auth::User();
-        return view('Backend.modulos.servicios');
+        return view('Backend.modulos.slider');
     }
 
     public function save(Request $r){
         try{
-            $reglas = [                               
-                'nombre' => 'required|string|max:150',
-                'icono' =>  'required|max:150',              
-                'descripcion' =>  'required|min:10',
+            $reglas = [                  
+                'zona' =>  'required|max:150',              
+                'precio' =>  'required',
             ]; 
 
             $messages = Utilidades::MensajesValidaciones();
@@ -37,19 +37,24 @@ class servicioscontroller extends Controller
 
          
             $data = array(
-                'nombre' => $r->nombre,
-                'icono' => $r->icono,               
-                'descripcion' => $r->descripcion,
+                'zona' => $r->zona,               
+                'precio' => $r->precio,
                
-            );       
+            );      
+            
+            $file = $r->file('imagen');
+            if($file!=null){
+                $fileName = Utilidades::GuardarArchivos('carousels', $file, 'carousel');
+                $data["imagen"] =  $fileName;
+            }
           
            
             if($r->id==null){                
-                servicios::create($data);
+                slider::create($data);
 
             }else{             
                
-                servicios::where('id', $r->id)->update($data);              
+                slider::where('id', $r->id)->update($data);              
             }         
 
             return response()->json(["status" => 200, "msj"=> "ok", "errors"=>null]);
@@ -63,22 +68,22 @@ class servicioscontroller extends Controller
   
 
     public function listar(){
-        return DB::table('servicios')
-        ->select('id', 'nombre')
+        return DB::table('slider')
+        ->select('id', 'zona')
         ->get();
 
     }
 
     public function obtener(Request $r){
-        return DB::table('servicios')
+        return DB::table('slider')
             ->where('id', $r->id)
-            ->select('id', 'nombre', 'icono', 'descripcion')           
+            ->select('id', 'imagen', 'zona', 'precio')           
             ->first();
     }
 
     public function eliminar(Request $r){
         try{
-            DB::table('servicios')
+            DB::table('slider')
             ->where('id', $r->id)
             ->delete();
 

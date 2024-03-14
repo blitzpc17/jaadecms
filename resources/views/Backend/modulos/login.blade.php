@@ -89,11 +89,17 @@
         <div class="form-group">
             <label for="">Usuario</label>
             <input id="usuario" name="usuario" class="form-control" type="text">
+            @error('usuario')
+            <small class="form-text text-warning">{{ $errors->first('usuario') }}</small>
+        @enderror
         </div>
 
         <div class="form-group">
             <label for="">Contraseña</label>
             <input id="password" name="password" class="form-control" type="password">
+            @error('password')
+            <small class="form-text text-warning">{{ $errors->first('password') }}</small>
+          @enderror   
         </div>
 
         <div class="form-button">

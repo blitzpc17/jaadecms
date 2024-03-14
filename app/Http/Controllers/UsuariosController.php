@@ -67,7 +67,7 @@ class UsuariosController extends Controller
                 //user
                 'username' => 'required|string|max:255',
                 'email' => 'required|email|max:255',               
-                'password' => 'required|min:8'
+               // 'password' => 'required|min:8'
             ]; 
 
             $messages = Utilidades::MensajesValidaciones();
@@ -95,11 +95,11 @@ class UsuariosController extends Controller
                 User::where('id', $r->id)->update($dataUser);              
             }         
 
-            return response()->json(["status" => 200, "msj"=> "ok"]);
+            return response()->json(["status" => 200, "msj"=> "ok", "errors"=>null]);
 
         }catch(Exception $ex){
             Log::error('Error en la clase ' . __CLASS__ . ' en la línea ' . __LINE__ . ': ' . $ex->getMessage());
-            return response()->json(["status"=>500, "msj" => "error en save"]);
+            return response()->json(["status"=>500, "msj" => "error en save", "errors"=>null]);
         }
     } 
     
@@ -119,6 +119,19 @@ class UsuariosController extends Controller
         return DB::table('users')
             ->where('id', $r->id)
             ->first();
+    }
+
+    public function eliminar(Request $r){
+        try{
+            DB::table('users')
+            ->where('id', $r->id)
+            ->delete();
+
+            return response()->json(["status"=>200, "maj"=> "ok"]);
+        }catch(Exception $ex){
+
+        }
+        
     }
 
 }

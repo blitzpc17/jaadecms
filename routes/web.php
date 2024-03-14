@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\indexController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\zonasController;
+use App\Http\Controllers\sliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,8 @@ Route::get('/', [indexController::class, 'home'])->name('home');
 Route::get('lotificaciones', [indexController::class, 'zonas'])->name('lotificaciones');
 Route::get('contacto', [indexController::class, 'contacto'])->name('contacto');
 
-
+Route::get('zonas', [indexController::class, 'zonas'])->name('zonas');
+Route::get('zonas/info', [indexController::class, 'zonasinfo'])->name('zonas.info');
 
 /*BACKEND */
 
@@ -41,11 +43,33 @@ Route::prefix('admin')->group(function () {
      
         Route::get('home',[UsuariosController::class, 'home'])->name('admin.home');
      
+        //usuarios
         Route::get('usuarios', [UsuariosController::class, 'create'])->name('admin.users');
         Route::post('usuarios/save', [UsuariosController::class, 'save'])->name('admin.users.save');
         Route::get('usuarios/listar', [UsuariosController::class, 'listar'])->name('admin.users.listar');
         Route::get('usuarios/obtener', [UsuariosController::class, 'obtener'])->name('admin.users.ver');
         Route::get('usuarios/eliminar', [UsuariosController::class, 'eliminar'])->name('admin.users.delete');
+
+        //zonas
+        Route::get('zonas', [zonasController::class, 'create'])->name('admin.zonas');
+        Route::post('zonas/save', [zonasController::class, 'save'])->name('admin.zonas.save');
+        Route::get('zonas/listar', [zonasController::class, 'listar'])->name('admin.zonas.listar');
+        Route::get('zonas/obtener', [zonasController::class, 'obtener'])->name('admin.zonas.ver');
+        Route::get('zonas/eliminar', [zonasController::class, 'eliminar'])->name('admin.zonas.delete');    
+        
+        //servicios
+        Route::get('servicios', [serviciosController::class, 'create'])->name('admin.servicios');
+        Route::post('servicios/save', [serviciosController::class, 'save'])->name('admin.servicios.save');
+        Route::get('servicios/listar', [serviciosController::class, 'listar'])->name('admin.servicios.listar');
+        Route::get('servicios/obtener', [serviciosController::class, 'obtener'])->name('admin.servicios.ver');
+        Route::get('servicios/eliminar', [serviciosController::class, 'eliminar'])->name('admin.servicios.delete');    
+
+        //slider
+        Route::get('slider', [sliderController::class, 'create'])->name('admin.slider');
+        Route::post('slider/save', [sliderController::class, 'save'])->name('admin.slider.save');
+        Route::get('slider/listar', [sliderController::class, 'listar'])->name('admin.slider.listar');
+        Route::get('slider/obtener', [sliderController::class, 'obtener'])->name('admin.slider.ver');
+        Route::get('slider/eliminar', [sliderController::class, 'eliminar'])->name('admin.slider.delete');    
 
     });
 

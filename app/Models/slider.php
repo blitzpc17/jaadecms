@@ -5,22 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class servicios extends Model
+class slider extends Model
 {
     use HasFactory;
 
-    protected $table='servicios';
+
+    protected $table='slider';
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'nombre',
-        'icono',
-        'descripcion'
+        'imagen',
+        'zona',
+        'precio'
         
     ];
 
     public $timestamps = false;
-
 
 
 }

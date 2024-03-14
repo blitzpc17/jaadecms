@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/v/dt/dt-2.0.1/datatables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+      small{
+        color:orange;
+      }
+    </style>
     @stack('css')
 </head>
 <body>
@@ -23,16 +28,16 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('admin.home')}}">Inicio<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('admin.users')}}">Usuarios</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Slider</a>
+        <a class="nav-link" href="{{route('admin.slider')}}">Carousel</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Zonas</a>
+        <a class="nav-link" href="{{route('admin.zonas')}}">Zonas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="">Servicios</a>
