@@ -7,6 +7,8 @@ use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\zonasController;
 use App\Http\Controllers\sliderController;
 use App\Http\Controllers\servicioscontroller;
+use App\Http\Controllers\variablesglobalescontroller;
+use App\Http\Controllers\contactocontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,8 @@ Route::get('contacto', [indexController::class, 'contacto'])->name('contacto');
 
 Route::get('zonas', [indexController::class, 'zonas'])->name('zonas');
 Route::get('zonas/info', [indexController::class, 'zonasinfo'])->name('zonas.info');
+
+Route::post('contacto/save', [indexcontroller::class, 'saveComentario'])->name('contacto.save');
 
 /*BACKEND */
 
@@ -70,7 +74,23 @@ Route::prefix('admin')->group(function () {
         Route::post('slider/save', [sliderController::class, 'save'])->name('admin.slider.save');
         Route::get('slider/listar', [sliderController::class, 'listar'])->name('admin.slider.listar');
         Route::get('slider/obtener', [sliderController::class, 'obtener'])->name('admin.slider.ver');
-        Route::get('slider/eliminar', [sliderController::class, 'eliminar'])->name('admin.slider.delete');    
+        Route::get('slider/eliminar', [sliderController::class, 'eliminar'])->name('admin.slider.delete'); 
+        
+        
+         //datos
+         Route::get('datos', [variablesglobalescontroller::class, 'create'])->name('admin.datos');
+         Route::post('datos/save', [variablesglobalesController::class, 'save'])->name('admin.datos.save');
+         Route::get('datos/listar', [variablesglobalesController::class, 'listar'])->name('admin.datos.listar');
+         Route::get('datos/obtener', [variablesglobalesController::class, 'obtener'])->name('admin.datos.ver');
+         Route::get('datos/eliminar', [variablesglobalesController::class, 'eliminar'])->name('admin.datos.delete'); 
+         
+
+        //contacto
+
+
+        Route::get('contacto', [contactocontroller::class, 'create'])->name('admin.contacto');
+        Route::get('contacto/listar',  [contactocontroller::class, 'listar'])->name('admin.contacto.listar');
+        Route::get('contacto/obtener', [contactocontroller::class, 'obtener'])->name('admin.contacto.ver');
 
     });
 

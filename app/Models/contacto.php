@@ -16,7 +16,9 @@ class contacto extends Model
         'nombre',
         'correo',
         'telefono',
-        'comentario'
+        'comentario',
+        'asunto',
+        'fecha'
         
     ];
 

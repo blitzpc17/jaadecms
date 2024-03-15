@@ -199,7 +199,7 @@
         $('#zona').val(data.zona)
         $('#precio').val(data.precio)
 
-       $('.model-title').text('Modificar registro')
+       $('.modal-title').text('Modificar registro')
         $('#md-registro').modal('toggle')
 
     }

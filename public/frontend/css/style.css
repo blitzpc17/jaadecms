@@ -462,6 +462,27 @@ a:hover {
   color: #fff;
 }
 
+.whats-button {
+  position: fixed;
+  background: #18AB52;
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  line-height: 1;
+  font-size: 16px;
+  border-radius: 50%;
+  right: 15px;
+  bottom: 70px;
+  transition: background 0.5s;
+  z-index: 11;
+}
+
+.whats-button i {
+  padding-top: 12px;
+  color: #fff;
+}
+
 /* Prelaoder */
 
 #preloader {

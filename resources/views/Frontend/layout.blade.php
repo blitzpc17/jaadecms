@@ -87,15 +87,17 @@
             </div>
             <div class="w-body-a">
               <p class="w-text-a color-text-a">
-                Estamos en Calle Lazaro Cardenas # San Loranzo Teotipilco, Tehuacán Puebla.
+                Estamos en {{$direccion}}
               </p>
             </div>
             <div class="w-footer-a">
               <ul class="list-unstyled">
+                @foreach($telefonos as $tel)
                 <li class="color-a">
-                  <span class="color-text-a"><i class="fa fa-phone-square"></i> .</span> 238 147 3674</li>
-                <li class="color-a">
-                  <span class="color-text-a"><i class="fa fa-phone-square"></i> .</span> 221 208 1076</li>
+                  <span class="color-text-a"><i class="fa fa-phone-square"></i> .</span> {{$tel}}</li>
+                @endforeach
+              
+             
               </ul>
             </div>
           </div>
@@ -129,43 +131,26 @@
           <nav class="nav-footer">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="#">Inicio</a>
+                <a href="{{route('home')}}">Inicio</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Lotificaciones</a>
+                <a href="{{route('zonas')}}">Lotificaciones</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Contacto</a>
+                <a href="{{route('contacto')}}">Contacto</a>
               </li>
             </ul>
           </nav>
           <div class="socials-a">
             <ul class="list-inline">
+              @foreach($redes as $r)
               <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                <a href="{{$r->enlace}}" target="_blank">
+                  <i class="fa fa-{{$r->icono}}" aria-hidden="true"></i>
                 </a>
               </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-dribbble" aria-hidden="true"></i>
-                </a>
-              </li>
+              @endforeach
+             
             </ul>
           </div>
           <div class="copyright-footer">
@@ -184,6 +169,7 @@
   <!--/ Footer End /-->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <a href="https://wa.me/52{{$whats}}" target="_blank" class="whats-button"><i class="fa fa-whatsapp"></i></a>
   <div id="preloader"></div>
 
   <!-- JavaScript Libraries -->
@@ -194,11 +180,11 @@
   <script src="{{asset('frontend/lib/easing/easing.min.js')}}"></script>
   <script src="{{asset('frontend/lib/owlcarousel/owl.carousel.min.js')}}"></script>
   <script src="{{asset('frontend/lib/scrollreveal/scrollreveal.min.js')}}"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="{{asset('frontend/contactform/contactform.js')}}"></script>
 
   <!-- Template Main Javascript File -->
   <script src="{{asset('frontend/js/main.js')}}"></script>
+
+  @stack('js')
 
 </body>
 </html>

@@ -199,7 +199,7 @@
         $('#icono').val(data.icono)
         $('#descripcion').val(data.descripcion)
 
-       $('.model-title').text('Modificar registro')
+       $('.modal-title').text('Modificar registro')
         $('#md-registro').modal('toggle')
 
     }

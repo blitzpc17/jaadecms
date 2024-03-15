@@ -261,7 +261,7 @@
         $('#reciente').val(data.reciente)
         $('#desde').val(data.desde)
 
-       $('.model-title').text('Modificar registro')
+       $('.modal-title').text('Modificar registro')
         $('#md-registro').modal('toggle')
 
     }

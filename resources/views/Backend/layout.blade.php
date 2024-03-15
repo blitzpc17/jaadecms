@@ -43,7 +43,10 @@
         <a class="nav-link" href="{{route('admin.servicios')}}">Servicios</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Contacto</a>
+        <a class="nav-link" href="{{route('admin.contacto')}}">Contacto</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.datos')}}">Datos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="">Salir</a>
