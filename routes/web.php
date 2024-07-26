@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\indexController;
 use App\Http\Controllers\UsuariosController;
-use App\Http\Controllers\zonasController;
+use App\Http\Controllers\zonascontroller;
 use App\Http\Controllers\sliderController;
 use App\Http\Controllers\servicioscontroller;
 use App\Http\Controllers\variablesglobalescontroller;
@@ -56,11 +56,11 @@ Route::prefix('admin')->group(function () {
         Route::get('usuarios/eliminar', [UsuariosController::class, 'eliminar'])->name('admin.users.delete');
 
         //zonas
-        Route::get('zonas', [zonasController::class, 'create'])->name('admin.zonas');
-        Route::post('zonas/save', [zonasController::class, 'save'])->name('admin.zonas.save');
-        Route::get('zonas/listar', [zonasController::class, 'listar'])->name('admin.zonas.listar');
-        Route::get('zonas/obtener', [zonasController::class, 'obtener'])->name('admin.zonas.ver');
-        Route::get('zonas/eliminar', [zonasController::class, 'eliminar'])->name('admin.zonas.delete');    
+        Route::get('zonas', [zonascontroller::class, 'create'])->name('admin.zonas');
+        Route::post('zonas/save', [zonascontroller::class, 'save'])->name('admin.zonas.save');
+        Route::get('zonas/listar', [zonascontroller::class, 'listar'])->name('admin.zonas.listar');
+        Route::get('zonas/obtener', [zonascontroller::class, 'obtener'])->name('admin.zonas.ver');
+        Route::get('zonas/eliminar', [zonascontroller::class, 'eliminar'])->name('admin.zonas.delete');    
         
         //servicios
         Route::get('servicios', [serviciosController::class, 'create'])->name('admin.servicios');

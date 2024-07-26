@@ -5,6 +5,7 @@ namespace App\Models;
 
 
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class Utilidades 
 {
@@ -23,7 +24,7 @@ class Utilidades
     }
 
     public static function GuardarArchivos($carpeta, $file, $raiz){
-        $fileName =  time(). '_'.$raiz.'.' . $file->getClientOriginalExtension();
+        $fileName =  Str::random(10). '_'.$raiz.'.' . $file->getClientOriginalExtension();
         $file->move(public_path($carpeta), $fileName);
 
         return $fileName;
